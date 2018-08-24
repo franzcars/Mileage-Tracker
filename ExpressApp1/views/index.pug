@@ -1,0 +1,31 @@
+﻿extends layout
+
+block content
+  .w3-grey
+     img.image.center.w3-grey(src='/images/gtr.jpg')
+  .w3-containter.w3-displaycontainer.w3-center.w3-grey
+    
+   .jumbotron.w3-container
+    h1 Welcome to The Quick Miliage Tracker!
+   h2.w3-red #{added}
+   br
+   h2 Enter the vin to check the mileage
+   form(action='/get', method='POST')
+        lable Enter the Vin 
+        br
+        input(type="text", name="Vin", id="Vin")
+        br
+        input(class="w3-button w3-black",type="submit", value="Check Mileage",name="Check Mileage", id="submit")
+   br
+   h2 Please add a Vehicle or Update
+   form(action='/put', method='POST')
+        
+        lable Enter the Vin
+        br
+        input(type="text", name="Vin", id="Vin")
+        br
+        lable  Enter the mileage
+        br
+        input(type="text", name="Mileage", id="Mileage")
+        br
+        input(class="w3-button w3-black",type="submit", value="Add or Update", name="Add a update", id="submit")
