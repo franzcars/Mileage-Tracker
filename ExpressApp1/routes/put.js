@@ -5,7 +5,7 @@ var AWS = require("aws-sdk");
 var fs = require('fs');
 
 AWS.config.update({
-    region: "us-east-2",
+    region: "us-east-2"
 });
 
 var docClient = new AWS.DynamoDB.DocumentClient();

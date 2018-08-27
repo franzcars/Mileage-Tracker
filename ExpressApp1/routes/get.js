@@ -16,7 +16,7 @@ router.all('/', function (req, res) {
 var vin = req.body.Vin;
 var car = "GTR";
     var color = "Silver";
-    console.log(vin)
+    console.log(vin);
 var params = {
     TableName: table,
     Key:{
