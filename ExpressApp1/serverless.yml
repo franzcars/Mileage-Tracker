@@ -9,12 +9,6 @@ provider:
 
 
 functions:
-  hello:
-    handler: handler.hello
-    events:
-     - http:
-        path: users/create
-        method: get
   database:
     handler: handler.database
     events:
