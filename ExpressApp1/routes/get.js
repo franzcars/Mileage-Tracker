@@ -10,7 +10,7 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "Tracker";
+var table = "Mileage";
 router.all('/', function (req, res) {
 
 var vin = req.body.Vin;
@@ -19,19 +19,20 @@ var car = "GTR";
     console.log(vin);
 var params = {
     TableName: table,
-    Key:{
-        "Vin": vin,
+    FilterExpression: 'Vin = :thisvin',
+    ExpressionAttributeValues:{
+        ":thisvin": vin
     }
 };
 
-docClient.get(params, function(err, data) {
+docClient.scan(params, function(err, data) {
     if (err) {
         console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
     } else {
         var stuff = JSON.stringify(data);
-        console.log(data.Item.Color);
+        console.log(data.Items);
         console.log(stuff.Item);
-        res.render('get', { title: 'Justin', test: data.Item.Mileage });
+        res.render('get', { title: 'Justin', test: data.Items.Mileage });
 
     }
     });

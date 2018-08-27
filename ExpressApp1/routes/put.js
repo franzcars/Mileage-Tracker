@@ -1,6 +1,7 @@
 ﻿'use strict';
 var express = require('express');
 var router = express.Router();
+var uuid = require("uuid");
 var AWS = require("aws-sdk");
 var fs = require('fs');
 
@@ -10,7 +11,7 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "Tracker";
+var table = "Mileage";
 router.all('/', function (req, res) {
 
 var vin = req.body.Vin;
@@ -21,7 +22,8 @@ var car = "Evo";
     console.log(mileage);
 var params = {
     TableName: table,
-    Item:{
+    Item: {
+        "id": uuid.v1(),
         "Vin": vin,
         "Mileage": mileage,
         "Color": color,

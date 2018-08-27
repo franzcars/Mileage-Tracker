@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="handler.js" />
     <Compile Include="routes\put.js" />
     <Compile Include="routes\get.js" />
     <Compile Include="routes\index.js">
@@ -40,6 +41,7 @@
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
+    <Content Include="serverless.yml" />
     <Content Include="views\put.pug" />
     <Content Include="views\get.pug" />
     <Content Include="views\layout.pug" />
